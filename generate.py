@@ -1,5 +1,6 @@
 import os
 import re
+from turtle import st
 from dotenv import load_dotenv
 import google.generativeai as genai
 from PyPDF2 import PdfReader
@@ -22,19 +23,25 @@ print("✅ Gemini API Key loaded successfully!\n")
 # ======================================================
 # FILE INPUT (same as solving)
 # ======================================================
-pdf_path = input("📂 Enter your PDF file path: ").strip()
+uploaded_file = st.file_uploader("📂 Upload your PDF", type=["pdf"])
+if uploaded_file is not None:
+    with open("temp.pdf", "wb") as f:
+        f.write(uploaded_file.read())
+    path = "temp.pdf"
+else:
+    st.stop()
 
-if not os.path.exists(pdf_path):
+if not os.path.exists(path):
     raise FileNotFoundError("⚠️ File not found! Please enter a valid PDF path.")
 
-num_qs = int(input("🧮 How many MCQs to generate?: ").strip())
+num_qs = int(st.text_input("🧮 How many MCQs to generate?: ").strip())
 
 languages = ["English", "Telugu", "Hindi", "Odia"]
-print("\n🌐 Available Languages:")
+st.write("\n🌐 Available Languages:")
 for i, lang in enumerate(languages, 1):
-    print(f"{i}. {lang}")
+    st.write(f"{i}. {lang}")
 
-choice = int(input("\n👉 Enter the number of your language choice: ").strip())
+choice = int(st.text_input("\n👉 Enter the number of your language choice: ").strip())
 if choice < 1 or choice > len(languages):
     raise ValueError("Invalid choice! Please select a valid option.")
 
