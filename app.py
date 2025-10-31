@@ -7,6 +7,13 @@ from datetime import datetime
 import streamlit as st
 from dotenv import load_dotenv
 
+import streamlit as st
+
+
+st.title("📄 Unified PDF Processing Pipeline")
+
+# Your app logic (upload, process, display, etc.)
+
 # Backends
 import importlib
 
