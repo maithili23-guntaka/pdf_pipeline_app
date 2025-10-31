@@ -1,0 +1,9 @@
+streamlit
+pandas
+numpy
+requests
+pillow
+sympy
+python-dotenv
+PyMuPDF
+reportlab
