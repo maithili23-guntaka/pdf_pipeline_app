@@ -1,7 +1,9 @@
 streamlit
 pdfplumber
+PyPDF2
 tqdm
 google-generativeai
+playwright
 PyMuPDF
 reportlab
 python-dotenv
