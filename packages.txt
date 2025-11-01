@@ -1,0 +1,5 @@
+chromium
+tk
+libgl1
+libnss3
+libasound2

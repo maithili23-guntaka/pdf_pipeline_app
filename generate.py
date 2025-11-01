@@ -1,6 +1,6 @@
 import os
 import re
-from turtle import st
+import streamlit as st
 from dotenv import load_dotenv
 import google.generativeai as genai
 from PyPDF2 import PdfReader
